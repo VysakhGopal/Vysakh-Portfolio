@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Github, MapPin, Briefcase } from 'lucide-react';
+import { ArrowRight, Github, MapPin, Briefcase } from 'lucide-react';
 import { personalInfo } from '../../data/portfolio';
 
 const containerVariants = {
@@ -79,11 +79,11 @@ export default function Hero() {
               variants={itemVariants}
               className="text-lg text-slate-500 dark:text-slate-400 leading-relaxed max-w-2xl mb-8"
             >
-              I build scalable healthcare systems and robust backend APIs at{' '}
+              Aspiring Backend Software Engineer with hands-on experience in{' '}
               <span className="text-slate-700 dark:text-slate-300 font-medium">
-                Virtuosoft Technologies
-              </span>
-              . Focused on clean architecture, SQL optimization, and systems that perform under pressure.
+                ASP.NET Core, React and SQL Server
+              </span>{' '}
+              at Virtuosoft Technologies. Building scalable systems with FastAPI, Layered Architecture, REST APIs and AI-powered applications.
             </motion.p>
 
             {/* Meta info */}
@@ -98,7 +98,7 @@ export default function Hero() {
               <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600" />
               <span className="flex items-center gap-1.5">
                 <MapPin size={14} className="text-blue-500" />
-                Kerala, India
+                Malappuram, Kerala
               </span>
               <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600" />
               <span className="font-mono text-xs bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-slate-600 dark:text-slate-400">
@@ -120,17 +120,6 @@ export default function Hero() {
                 View Projects
                 <ArrowRight size={16} />
               </motion.button>
-
-              <motion.a
-                href={personalInfo.resumeUrl}
-                download
-                className="btn-secondary"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Download size={16} />
-                Download Resume
-              </motion.a>
 
               <motion.a
                 href={personalInfo.github}

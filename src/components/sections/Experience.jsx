@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Calendar, CheckCircle2, ExternalLink } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 import AnimatedSection from '../ui/AnimatedSection';
-import { experience } from '../../data/portfolio';
+import { experience, education } from '../../data/portfolio';
 
 export default function Experience() {
   return (
@@ -101,32 +101,46 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* Education card */}
-        <AnimatedSection variant="fadeUp" delay={0.2} className="mt-6">
-          <div className="card border border-slate-100 dark:border-slate-800 p-8">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
-                  <span className="text-slate-600 dark:text-slate-400 font-bold text-lg">T</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 dark:text-white">
-                    B.Tech — Electrical and Computer Engineering
-                  </h3>
-                  <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm mt-0.5">
-                    TKM College of Engineering
-                  </p>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-                    Kollam, Kerala · 2022 — 2026
-                  </p>
+        {/* Education cards */}
+        <AnimatedSection variant="fadeUp" delay={0.2} className="mt-8">
+          <h3 className="text-sm font-semibold tracking-widest uppercase text-slate-400 dark:text-slate-500 mb-4">
+            Education
+          </h3>
+        </AnimatedSection>
+
+        <div className="space-y-4">
+          {education.map((edu, index) => (
+            <AnimatedSection key={index} variant="fadeUp" delay={0.25 + index * 0.08}>
+              <div className="card border border-slate-100 dark:border-slate-800 p-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                      <span className="text-slate-600 dark:text-slate-400 font-bold text-sm">
+                        {edu.institution.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-slate-900 dark:text-white text-sm">
+                        {edu.degree}
+                      </h3>
+                      <p className="text-blue-600 dark:text-blue-400 font-medium text-sm mt-0.5">
+                        {edu.institution}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 flex-shrink-0 pl-14 sm:pl-0">
+                    <span className="text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-lg">
+                      {edu.score}
+                    </span>
+                    <span className="text-xs text-slate-400 dark:text-slate-500 font-medium">
+                      {edu.period}
+                    </span>
+                  </div>
                 </div>
               </div>
-              <span className="self-start sm:self-center tag">
-                Pursuing
-              </span>
-            </div>
-          </div>
-        </AnimatedSection>
+            </AnimatedSection>
+          ))}
+        </div>
       </div>
     </section>
   );

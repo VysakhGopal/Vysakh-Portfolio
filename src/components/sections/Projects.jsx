@@ -20,6 +20,13 @@ const colorMap = {
     placeholder: 'from-violet-50 to-violet-100 dark:from-violet-950/40 dark:to-violet-900/20',
     icon: 'text-violet-300 dark:text-violet-700',
   },
+  emerald: {
+    accent: 'from-emerald-500 to-emerald-600',
+    badge: 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-100 dark:border-emerald-900/60',
+    category: 'text-emerald-600 dark:text-emerald-400',
+    placeholder: 'from-emerald-50 to-emerald-100 dark:from-emerald-950/40 dark:to-emerald-900/20',
+    icon: 'text-emerald-300 dark:text-emerald-700',
+  },
 };
 
 function ProjectCard({ project, index }) {
@@ -170,7 +177,7 @@ export default function Projects() {
           subtitle="A selection of projects that showcase my backend engineering and machine learning skills."
         />
 
-        <div className="mt-12 grid md:grid-cols-2 gap-6">
+        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}

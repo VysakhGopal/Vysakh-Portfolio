@@ -44,13 +44,13 @@ export default function About() {
 
             <AnimatedSection variant="fadeUp" delay={0.3} className="mt-8 space-y-4">
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                Currently interning at <span className="font-semibold text-slate-800 dark:text-slate-200">Virtuosoft Technologies</span>, where I work on production healthcare applications. My day-to-day involves designing REST APIs with .NET Core, writing optimized stored procedures, and building systems that handle real-time healthcare data.
+                Currently interning at <span className="font-semibold text-slate-800 dark:text-slate-200">Virtuosoft Technologies</span>, contributing to an enterprise Healthcare ERP System. I build RESTful APIs with ASP.NET Core, develop React pages, implement JWT authentication with role-based authorization, and work with Layered Architecture and Clean Architecture patterns.
               </p>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                I'm pursuing Electrical and Computer Engineering at <span className="font-semibold text-slate-800 dark:text-slate-200">TKM College of Engineering</span>, which gives me a unique perspective on both hardware and software systems. Outside of backend work, I explore machine learning and data analytics.
+                I'm pursuing Electrical and Computer Engineering at <span className="font-semibold text-slate-800 dark:text-slate-200">TKM College of Engineering</span> (CGPA: 7.2). Beyond the internship, I've built an AI document management platform using FastAPI, semantic search with FAISS, OCR, Redis and Docker.
               </p>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                I care deeply about code quality, clean architecture, and building things that last. I'm actively looking for backend engineering roles at product companies and startups where I can contribute meaningfully.
+                I'm passionate about clean architecture, SOLID principles, and building systems that are reliable and maintainable. Actively looking for backend or full-stack engineering roles at product companies and startups.
               </p>
             </AnimatedSection>
 

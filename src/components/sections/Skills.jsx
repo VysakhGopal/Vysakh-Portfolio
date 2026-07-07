@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code2, Server, Database, Layout, Wrench, BarChart2 } from 'lucide-react';
+import { Code2, Server, Database, Layout, Wrench, BarChart2, Shield, Brain, Layers } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 import AnimatedSection from '../ui/AnimatedSection';
 import { skills } from '../../data/portfolio';
@@ -11,6 +11,9 @@ const iconMap = {
   Layout,
   Wrench,
   BarChart2,
+  Shield,
+  Brain,
+  Layers,
 };
 
 const colorMap = {
@@ -34,15 +37,25 @@ const colorMap = {
     icon: 'bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400',
     tag: 'bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border-sky-100 dark:border-sky-900/60',
   },
-  slate: {
-    card: 'hover:border-slate-300 dark:hover:border-slate-600',
-    icon: 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400',
-    tag: 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700',
-  },
   emerald: {
     card: 'hover:border-emerald-200 dark:hover:border-emerald-800',
     icon: 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400',
     tag: 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-100 dark:border-emerald-900/60',
+  },
+  pink: {
+    card: 'hover:border-pink-200 dark:hover:border-pink-800',
+    icon: 'bg-pink-50 dark:bg-pink-950/60 text-pink-600 dark:text-pink-400',
+    tag: 'bg-pink-50 dark:bg-pink-950/60 text-pink-700 dark:text-pink-300 border-pink-100 dark:border-pink-900/60',
+  },
+  orange: {
+    card: 'hover:border-orange-200 dark:hover:border-orange-800',
+    icon: 'bg-orange-50 dark:bg-orange-950/60 text-orange-600 dark:text-orange-400',
+    tag: 'bg-orange-50 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 border-orange-100 dark:border-orange-900/60',
+  },
+  slate: {
+    card: 'hover:border-slate-300 dark:hover:border-slate-600',
+    icon: 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400',
+    tag: 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700',
   },
 };
 
@@ -53,10 +66,10 @@ export default function Skills() {
         <SectionHeader
           label="Skills"
           title="Technologies I work with"
-          subtitle="A focused stack built around backend engineering, data systems, and modern web development."
+          subtitle="A focused stack built around backend engineering, AI systems, and modern web development."
         />
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {skills.map((skill, index) => {
             const Icon = iconMap[skill.icon];
             const colors = colorMap[skill.color];
@@ -65,29 +78,29 @@ export default function Skills() {
               <AnimatedSection
                 key={skill.category}
                 variant="fadeUp"
-                delay={0.05 * index}
+                delay={0.04 * index}
               >
                 <motion.div
-                  className={`card p-6 group cursor-default border border-slate-100 dark:border-slate-800 ${colors.card} transition-all duration-300`}
+                  className={`card p-5 group cursor-default border border-slate-100 dark:border-slate-800 ${colors.card} transition-all duration-300 h-full`}
                   whileHover={{ y: -4 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                 >
                   {/* Header */}
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${colors.icon}`}>
-                      <Icon size={18} />
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${colors.icon}`}>
+                      <Icon size={16} />
                     </div>
-                    <h3 className="font-semibold text-slate-900 dark:text-white text-sm">
+                    <h3 className="font-semibold text-slate-900 dark:text-white text-xs leading-tight">
                       {skill.category}
                     </h3>
                   </div>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {skill.items.map((item) => (
                       <span
                         key={item}
-                        className={`inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium border ${colors.tag} transition-colors duration-200`}
+                        className={`inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium border ${colors.tag} transition-colors duration-200`}
                       >
                         {item}
                       </span>

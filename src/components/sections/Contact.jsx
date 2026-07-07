@@ -100,7 +100,7 @@ export default function Contact() {
             <AnimatedSection variant="fadeUp" delay={0.3} className="mt-6">
               <div className="flex items-center gap-2 text-sm text-slate-400 dark:text-slate-500">
                 <MapPin size={14} />
-                <span>Based in Kerala, India · Open to remote</span>
+                <span>Based in Malappuram, Kerala · Open to remote</span>
               </div>
             </AnimatedSection>
           </div>
