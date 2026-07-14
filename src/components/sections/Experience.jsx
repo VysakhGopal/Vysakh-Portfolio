@@ -1,146 +1,70 @@
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin, Calendar, CheckCircle2, ExternalLink } from 'lucide-react';
-import SectionHeader from '../ui/SectionHeader';
+import { CheckCircle2, ArrowUpRight } from 'lucide-react';
 import AnimatedSection from '../ui/AnimatedSection';
 import { experience, education } from '../../data/portfolio';
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-padding bg-slate-50/50 dark:bg-slate-900/30">
+    <section id="experience" className="section-divider py-24 lg:py-32">
       <div className="section-container">
-        <SectionHeader
-          label="Experience"
-          title="Where I've worked"
-          subtitle="Real-world engineering experience building production systems."
-        />
-
-        <div className="mt-12 space-y-6">
-          {experience.map((job, index) => (
-            <AnimatedSection key={index} variant="fadeUp" delay={0.1}>
-              <motion.div
-                className="card border border-slate-100 dark:border-slate-800 overflow-hidden group"
-                whileHover={{ y: -2 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              >
-                {/* Top accent bar */}
-                <div className="h-1 bg-gradient-to-r from-blue-500 to-blue-400" />
-
-                <div className="p-8">
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6">
-                    {/* Company info */}
-                    <div className="flex items-start gap-4">
-                      {/* Company logo placeholder */}
-                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shadow-sm">
-                        <span className="text-white font-bold text-lg">V</span>
-                      </div>
-
-                      <div>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                          {job.role}
-                        </h3>
-                        <div className="flex items-center gap-2 mt-1">
-                          <span className="font-semibold text-blue-600 dark:text-blue-400">
-                            {job.company}
-                          </span>
-                          <span className="tag text-xs">{job.type}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Meta */}
-                    <div className="flex flex-wrap gap-3 text-sm text-slate-500 dark:text-slate-400">
-                      <span className="flex items-center gap-1.5">
-                        <Calendar size={13} />
-                        {job.period}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <MapPin size={13} />
-                        {job.location}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                    {job.description}
-                  </p>
-
-                  {/* Highlights */}
-                  <div className="space-y-3 mb-6">
-                    {job.highlights.map((highlight, i) => (
-                      <motion.div
-                        key={i}
-                        className="flex items-start gap-3"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 + i * 0.07 }}
-                      >
-                        <CheckCircle2
-                          size={15}
-                          className="flex-shrink-0 mt-0.5 text-blue-500 dark:text-blue-400"
-                        />
-                        <span className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                          {highlight}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Tech stack */}
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
-                    {job.tech.map((tech) => (
-                      <span key={tech} className="tag-gray text-xs">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatedSection>
-          ))}
-        </div>
-
-        {/* Education cards */}
-        <AnimatedSection variant="fadeUp" delay={0.2} className="mt-8">
-          <h3 className="text-sm font-semibold tracking-widest uppercase text-slate-400 dark:text-slate-500 mb-4">
-            Education
-          </h3>
+        <AnimatedSection variant="fadeUp">
+          <div className="mb-14">
+            <h2 className="section-heading">WORK</h2>
+            <h2 className="section-heading-ghost -mt-3">EXPERIENCE</h2>
+          </div>
         </AnimatedSection>
 
-        <div className="space-y-4">
-          {education.map((edu, index) => (
-            <AnimatedSection key={index} variant="fadeUp" delay={0.25 + index * 0.08}>
-              <div className="card border border-slate-100 dark:border-slate-800 p-6">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
-                      <span className="text-slate-600 dark:text-slate-400 font-bold text-sm">
-                        {edu.institution.charAt(0)}
-                      </span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-slate-900 dark:text-white text-sm">
-                        {edu.degree}
-                      </h3>
-                      <p className="text-blue-600 dark:text-blue-400 font-medium text-sm mt-0.5">
-                        {edu.institution}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 flex-shrink-0 pl-14 sm:pl-0">
-                    <span className="text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-lg">
-                      {edu.score}
-                    </span>
-                    <span className="text-xs text-slate-400 dark:text-slate-500 font-medium">
-                      {edu.period}
-                    </span>
-                  </div>
+        {experience.map((job, i) => (
+          <AnimatedSection key={i} variant="fadeUp" delay={0.1}>
+            <motion.div
+              className="group py-10 border-t border-white/[0.06] flex flex-col lg:flex-row lg:items-start gap-8"
+              whileHover={{ x: 3 }} transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+            >
+              <div className="lg:w-56 flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white font-black text-xl mb-4 shadow-lg shadow-blue-600/30">V</div>
+                <h3 className="text-white font-bold text-lg">{job.company}</h3>
+                <p className="text-blue-400 text-sm font-medium mt-0.5">{job.role}</p>
+                <p className="text-white/25 text-xs font-mono mt-2">{job.period}</p>
+              </div>
+              <div className="flex-1">
+                <p className="text-white/45 text-sm leading-relaxed mb-5">{job.description}</p>
+                <div className="space-y-2.5 mb-5">
+                  {job.highlights.map((h, j) => (
+                    <motion.div key={j} className="flex items-start gap-2.5"
+                      initial={{ opacity: 0, x: -8 }} whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }} transition={{ delay: 0.05 * j }}>
+                      <CheckCircle2 size={13} className="flex-shrink-0 mt-0.5 text-blue-500" />
+                      <span className="text-xs text-white/45">{h}</span>
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {job.tech.map(t => <span key={t} className="tag-dark">{t}</span>)}
                 </div>
               </div>
-            </AnimatedSection>
-          ))}
-        </div>
+              <ArrowUpRight size={16} className="flex-shrink-0 text-white/15 group-hover:text-blue-400 transition-colors mt-1" />
+            </motion.div>
+          </AnimatedSection>
+        ))}
+
+        <AnimatedSection variant="fadeUp" delay={0.2} className="mt-16">
+          <p className="text-[10px] font-bold tracking-widest uppercase text-white/25 mb-5">Education</p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {education.map((edu, i) => (
+              <div key={i} className="flex items-center justify-between p-5 rounded-2xl border border-white/[0.07]"
+                style={{ background: 'rgba(255,255,255,0.03)' }}>
+                <div>
+                  <p className="text-white font-semibold text-sm">{edu.degree}</p>
+                  <p className="text-blue-400 text-xs mt-0.5">{edu.institution}</p>
+                </div>
+                <div className="text-right ml-4 flex-shrink-0">
+                  <p className="text-emerald-400 font-mono text-sm font-bold">{edu.score}</p>
+                  <p className="text-white/25 text-xs mt-0.5">{edu.period}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

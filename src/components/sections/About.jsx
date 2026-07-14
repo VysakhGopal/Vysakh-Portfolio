@@ -1,125 +1,76 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Briefcase, Code2, Lightbulb } from 'lucide-react';
-import SectionHeader from '../ui/SectionHeader';
 import AnimatedSection from '../ui/AnimatedSection';
-import { timeline } from '../../data/portfolio';
+import { timeline, education } from '../../data/portfolio';
 
-const typeConfig = {
-  education: {
-    icon: GraduationCap,
-    color: 'bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400',
-    dot: 'bg-blue-500',
-  },
-  work: {
-    icon: Briefcase,
-    color: 'bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400',
-    dot: 'bg-emerald-500',
-  },
-  milestone: {
-    icon: Lightbulb,
-    color: 'bg-violet-100 dark:bg-violet-950 text-violet-600 dark:text-violet-400',
-    dot: 'bg-violet-500',
-  },
+const typeColor = {
+  education: 'bg-blue-500',
+  work:      'bg-emerald-500',
+  milestone: 'bg-violet-500',
 };
-
-const stats = [
-  { value: '1+', label: 'Year Experience' },
-  { value: '2+', label: 'Projects Shipped' },
-  { value: '40%', label: 'Query Optimization' },
-  { value: '∞', label: 'Lines of Code' },
-];
 
 export default function About() {
   return (
-    <section id="about" className="section-padding bg-slate-50/50 dark:bg-slate-900/30">
+    <section id="about" className="section-divider py-24 lg:py-32">
       <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left: Text content */}
-          <div>
-            <SectionHeader
-              label="About Me"
-              title="Backend engineer with a passion for systems that scale"
-              subtitle="I'm driven by the challenge of building software that works reliably at scale — from optimized database queries to clean API architecture."
-            />
+        <AnimatedSection variant="fadeUp">
+          <div className="mb-14">
+            <h2 className="section-heading">ABOUT</h2>
+            <h2 className="section-heading-ghost -mt-3">ME</h2>
+          </div>
+        </AnimatedSection>
 
-            <AnimatedSection variant="fadeUp" delay={0.3} className="mt-8 space-y-4">
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                Currently interning at <span className="font-semibold text-slate-800 dark:text-slate-200">Virtuosoft Technologies</span>, contributing to an enterprise Healthcare ERP System. I build RESTful APIs with ASP.NET Core, develop React pages, implement JWT authentication with role-based authorization, and work with Layered Architecture and Clean Architecture patterns.
+        <div className="grid lg:grid-cols-2 gap-14">
+          {/* Bio */}
+          <AnimatedSection variant="fadeUp" delay={0.1}>
+            <div className="space-y-5">
+              <p className="text-white/55 leading-relaxed text-base">
+                Currently interning at <span className="text-white font-semibold">Virtuosoft Technologies</span>, contributing to an enterprise Healthcare ERP System. I build RESTful APIs with ASP.NET Core, develop React pages, and implement JWT authentication with role-based authorization.
               </p>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                I'm pursuing Electrical and Computer Engineering at <span className="font-semibold text-slate-800 dark:text-slate-200">TKM College of Engineering</span> (CGPA: 7.2). Beyond the internship, I've built an AI document management platform using FastAPI, semantic search with FAISS, OCR, Redis and Docker.
+              <p className="text-white/55 leading-relaxed text-base">
+                Pursuing Electrical and Computer Engineering at <span className="text-white font-semibold">TKM College of Engineering</span> (CGPA: 7.2). Beyond the internship I've built an AI document management platform using FastAPI, semantic search with FAISS, OCR, Redis and Docker.
               </p>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                I'm passionate about clean architecture, SOLID principles, and building systems that are reliable and maintainable. Actively looking for backend or full-stack engineering roles at product companies and startups.
+              <p className="text-white/55 leading-relaxed text-base">
+                Passionate about clean architecture, SOLID principles, and building systems that are reliable and maintainable.
               </p>
-            </AnimatedSection>
-
-            {/* Stats */}
-            <AnimatedSection variant="fadeUp" delay={0.4} className="mt-10">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-100 dark:border-slate-800 text-center"
-                  >
-                    <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{stat.value}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-tight">{stat.label}</p>
+              <div className="mt-8 space-y-3">
+                {education.map((edu, i) => (
+                  <div key={i} className="flex items-center justify-between p-4 rounded-xl border border-white/8"
+                    style={{ background: 'rgba(255,255,255,0.03)' }}>
+                    <div>
+                      <p className="text-white font-semibold text-sm">{edu.degree}</p>
+                      <p className="text-blue-400 text-xs mt-0.5">{edu.institution}</p>
+                    </div>
+                    <div className="text-right flex-shrink-0 ml-4">
+                      <p className="text-emerald-400 font-mono text-xs font-bold">{edu.score}</p>
+                      <p className="text-white/30 text-xs mt-0.5">{edu.period}</p>
+                    </div>
                   </div>
                 ))}
               </div>
-            </AnimatedSection>
-          </div>
-
-          {/* Right: Timeline */}
-          <div>
-            <AnimatedSection variant="fadeLeft" delay={0.2}>
-              <h3 className="text-sm font-semibold tracking-widest uppercase text-slate-400 dark:text-slate-500 mb-8">
-                Journey
-              </h3>
-            </AnimatedSection>
-
-            <div className="relative">
-              {/* Vertical line */}
-              <div className="absolute left-5 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800" />
-
-              <div className="space-y-8">
-                {timeline.map((item, index) => {
-                  const config = typeConfig[item.type];
-                  const Icon = config.icon;
-
-                  return (
-                    <AnimatedSection
-                      key={index}
-                      variant="fadeLeft"
-                      delay={0.1 + index * 0.1}
-                    >
-                      <div className="relative flex gap-6">
-                        {/* Icon */}
-                        <div className={`relative z-10 flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center ${config.color}`}>
-                          <Icon size={16} />
-                        </div>
-
-                        {/* Content */}
-                        <div className="flex-1 pb-2">
-                          <div className="flex items-center gap-3 mb-1">
-                            <span className="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-md">
-                              {item.year}
-                            </span>
-                          </div>
-                          <h4 className="font-semibold text-slate-900 dark:text-white text-sm mb-1">
-                            {item.title}
-                          </h4>
-                          <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-                    </AnimatedSection>
-                  );
-                })}
-              </div>
             </div>
-          </div>
+          </AnimatedSection>
+
+          {/* Timeline */}
+          <AnimatedSection variant="fadeLeft" delay={0.15}>
+            <p className="text-[10px] font-bold tracking-widest uppercase text-white/25 mb-6">Journey</p>
+            <div className="relative space-y-6">
+              <div className="absolute left-3 top-2 bottom-2 w-px bg-white/8" />
+              {timeline.map((t, i) => (
+                <motion.div key={i} className="relative flex gap-5 pl-1"
+                  initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.4 }}>
+                  <div className={`relative z-10 flex-shrink-0 mt-1 w-6 h-6 rounded-full ${typeColor[t.type]} flex items-center justify-center shadow-lg`}>
+                    <span className="w-2 h-2 rounded-full bg-white/80" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-mono font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-md">{t.year}</span>
+                    <h4 className="text-white font-semibold text-sm mt-1.5">{t.title}</h4>
+                    <p className="text-white/35 text-xs leading-relaxed mt-1">{t.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
