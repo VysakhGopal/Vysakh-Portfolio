@@ -27,7 +27,7 @@ export default function About() {
                 Currently interning at <span className="text-white font-semibold">Virtuosoft Technologies</span>, contributing to an enterprise Healthcare ERP System. I build RESTful APIs with ASP.NET Core, develop React pages, and implement JWT authentication with role-based authorization.
               </p>
               <p className="text-white/55 leading-relaxed text-base">
-                Pursuing Electrical and Computer Engineering at <span className="text-white font-semibold">TKM College of Engineering</span> (CGPA: 7.2). Beyond the internship I've built an AI document management platform using FastAPI, semantic search with FAISS, OCR, Redis and Docker.
+                Pursuing Electrical and Computer Engineering at <span className="text-white font-semibold">TKM College of Engineering</span> (CGPA: 7.3). Beyond the internship I've built an AI document management platform using FastAPI, semantic search with FAISS, OCR, Redis and Docker.
               </p>
               <p className="text-white/55 leading-relaxed text-base">
                 Passionate about clean architecture, SOLID principles, and building systems that are reliable and maintainable.
