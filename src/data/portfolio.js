@@ -88,11 +88,11 @@ export const education = [
   {
     institution: "TKM College of Engineering, Kollam",
     degree: "B.Tech in Electrical and Computer Engineering",
-    period: "Expected 2026",
+    period: "2022 – 2026",
     location: "Kollam, Kerala",
-    score: "CGPA: 7.2",
+    score: "CGPA: 7.3",
     description:
-      "Pursuing a dual-discipline degree combining electrical systems with computer engineering fundamentals.",
+      "Completed a dual-discipline degree combining electrical systems with computer engineering fundamentals.",
   },
   {
     institution: "GHSS Mankada, Malappuram",
@@ -112,9 +112,9 @@ export const timeline = [
     type: "education",
   },
   {
-    year: "2023",
+    year: "2022",
     title: "Started B.Tech at TKM College of Engineering",
-    description: "Began Electrical and Computer Engineering (CGPA: 7.2), diving deep into programming, system design, and software development.",
+    description: "Began Electrical and Computer Engineering (CGPA: 7.3), diving deep into programming, system design, and software development.",
     type: "education",
   },
   {
